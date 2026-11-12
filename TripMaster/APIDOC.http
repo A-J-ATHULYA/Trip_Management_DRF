@@ -1,11 +1,16 @@
 ###
+GET http://127.0.0.1:8000/user/
+Accept: application/json
+
+
+###
 POST http://127.0.0.1:8000/register/
 Content-Type: application/json
 
 {
-    "username" : "Anila",
-    "email" : "anila@gmail.com",
-    "password" : "anila@123"
+    "username" : "binitha",
+    "email" : "binitha@gmail.com",
+    "password" : "1234"
 }
 
 
@@ -45,4 +50,23 @@ Authorization: Basic Alia:alia@123
 
 ###
 DELETE http://127.0.0.1:8000/trips/8/
+Authorization: Basic Alia:alia@123
+
+
+###
+GET http://127.0.0.1:8000/trips/6/members/
+Accept: application/json
+Authorization: Basic Alia:alia@123
+
+###
+POST http://127.0.0.1:8000/trips/6/members/
+Content-Type: application/json
+Authorization: Basic Alia:alia@123
+
+{
+    "username" : "ayan"
+}
+
+###
+DELETE http://127.0.0.1:8000/trips/6/members/4/
 Authorization: Basic Alia:alia@123

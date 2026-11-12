@@ -12,3 +12,20 @@ class TripDb(models.Model):
 
     def __str__(self):
         return self.title
+    
+    
+class TripMemberDb(models.Model):
+    trip = models.ForeignKey(TripDb, on_delete=models.CASCADE, related_name='trip_member')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_trips')
+    joined_at = models.DateTimeField(auto_now_add=True)
+    
+    # This means the combination of trips and user must be unique.
+    # It does not mean that trip alone or user alone must be unique.
+    # A user can join multiple trips, and a trip can have multiple users, but the same user cannot join the same trip more than once
+    
+    def __str__(self):
+        return f"{self.user.username} - {self.trip.title}"
+
+    
+    # manju - family trip to Ootty 
+    # anagha - office trip to munnar
